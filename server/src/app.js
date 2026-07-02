@@ -57,7 +57,7 @@ app.use((err, req, res, _next) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 PlaylistTime server running on port ${PORT}`);
-  console.log(`   Allowing requests from: ${clientOrigin}`);
+  console.log(`   Allowing requests from: ${allowedOrigins.join(', ')}`);
   if (!process.env.YOUTUBE_API_KEY) {
     console.warn('⚠️  WARNING: YOUTUBE_API_KEY is not set! API calls will fail.');
   }
