@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/$/, '');
 
 const apiClient = axios.create({
   baseURL: API_BASE,
-  timeout: 30000, // 30s timeout for large playlists
+  timeout: 60000, // 60s — accounts for Render free tier cold start (~30-50s)
   headers: {
     'Content-Type': 'application/json',
   },
